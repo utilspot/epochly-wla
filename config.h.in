@@ -1,0 +1,6 @@
+/* config.h.  Generated from config.h.in by CMake.  */
+
+#cmakedefine EPOCHLY_ASSETS_DIR  "@EPOCHLY_ASSETS_DIR@"
+#cmakedefine EPOCHLY_BASE_URL    "@EPOCHLY_BASE_URL@"
+#cmakedefine EPOCHLY_ROOT_URL    "@EPOCHLY_ROOT_URL@"
+#cmakedefine EPOCHLY_SERVICE_URL "@EPOCHLY_SERVICE_URL@"
