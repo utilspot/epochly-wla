@@ -1,0 +1,104 @@
+:root {
+  color-scheme: dark;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.admin {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+header h1 {
+  color: #38bdf8;
+  margin-bottom: 0.25rem;
+}
+
+header p {
+  color: #94a3b8;
+}
+
+a {
+  color: #38bdf8;
+}
+
+code {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+}
+
+.status {
+  margin: 1.5rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #334155;
+  background: #1e293b;
+  min-height: 1.2em;
+}
+
+.status--error {
+  border-color: #f87171;
+  color: #f87171;
+}
+
+.status--success {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+.preset-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.preset-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid #334155;
+  background: #1e293b;
+  cursor: pointer;
+}
+
+.preset-item:hover {
+  border-color: #38bdf8;
+}
+
+.preset-item--active {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.preset-item input {
+  margin-top: 0.25rem;
+}
+
+.preset-item__label {
+  font-weight: 600;
+}
+
+.preset-item__description {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+.preview {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.85rem;
+}

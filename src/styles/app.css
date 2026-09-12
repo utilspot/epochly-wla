@@ -1,0 +1,347 @@
+:root {
+  color-scheme: dark;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --border: #334155;
+  --text: #e2e8f0;
+  --text-muted: #94a3b8;
+  --accent: #38bdf8;
+  --danger: #f87171;
+  /* Flags-only font first; see polyfillCountryFlagEmojis in main.tsx. */
+  font-family: 'Twemoji Country Flags', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 60px;
+  padding: 0 24px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.app__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.app__header-link {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  color: var(--text-muted);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.app__header-link:hover,
+.app__header-link:focus-visible {
+  color: var(--text);
+}
+
+.app__main {
+  width: 100%;
+  max-width: 640px;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.timezone-select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+}
+
+.timezone-select__label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.timezone-select__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color-scheme: dark;
+}
+
+.timezone-select__input:focus {
+  outline: none;
+}
+
+.timezone-select__input option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.country-select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+}
+
+.country-select__label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.country-select__input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color-scheme: dark;
+}
+
+.country-select__input:focus {
+  outline: none;
+}
+
+.country-select__input option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.location-picker {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.location-picker__checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.location-picker__checkbox input {
+  accent-color: var(--accent);
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+
+.location-picker > .country-select,
+.location-picker > .timezone-select {
+  width: 100%;
+}
+
+.status {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.time-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.75rem;
+}
+
+.time-card__header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.time-card__refresh-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  /* Always pinned to the header's right edge, whether or not the badge
+   * next to it is rendered (it's hidden while stale - see TimeCard). */
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.time-card__refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.time-card__refresh-button:hover:not(:disabled) {
+  color: var(--text);
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.time-card__preset-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  border-radius: 999px;
+  padding: 0.2rem 0.6rem;
+}
+
+.time-card__preset-badge--offline {
+  color: var(--danger);
+  background: rgba(248, 113, 113, 0.12);
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+.time-card__description {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.time-card__big-time {
+  font-size: 3rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  margin: 1rem 0 1.5rem;
+}
+
+.time-card__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.5rem;
+  margin: 0;
+}
+
+.time-card__grid dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.time-card__grid dd {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.time-card__grid dd > code,
+.time-card__grid dd > span {
+  flex: 1;
+  min-width: 0;
+  word-break: break-all;
+}
+
+.copy-button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0.25rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  color: var(--text);
+  background: rgba(148, 163, 184, 0.12);
+}
+
+code {
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.app__footer {
+  /* auto margin eats the leftover space in the .app flex column, pinning
+   * the footer to the viewport bottom when the page is shorter than the
+   * window - and it just flows after the content once it isn't. */
+  margin-top: auto;
+  padding: 2rem 1.25rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.app__footer a {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .app__header {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .time-card__grid {
+    grid-template-columns: 1fr;
+  }
+}
