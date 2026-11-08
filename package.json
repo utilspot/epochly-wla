@@ -1,6 +1,6 @@
 {
   "name": "epochly-wla",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "description": "Current time service, IANA time zones, ISO 8601, epoch seconds, iCal strings.",
   "homepage": "https://github.com/utilspot/epochly-wla",
