@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
-project(epochly-wla VERSION 1.0.0 LANGUAGES C)
+project(epochly-wla VERSION 1.0.1 LANGUAGES C)
 
 include(GNUInstallDirs)
 
